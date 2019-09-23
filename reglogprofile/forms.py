@@ -66,6 +66,7 @@ class SetPasswordForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super(SetPasswordForm, self).clean()
         password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
 
         # check for min length
         min_length = 8
@@ -80,13 +81,13 @@ class SetPasswordForm(forms.ModelForm):
 
        
 
-        password_confirm = cleaned_data.get('password_confirm')
+        confirm_password = cleaned_data.get('confirm_password')
 
 
-        if password and password_confirm:
-            if password != password_confirm:
+        if password and confirm_password:
+            if password != confirm_password:
                 msg = "The two password fields must match."
-                self.add_error('password_confirm', msg)
+                self.add_error('confirm_password', msg)
         return cleaned_data
 
 
