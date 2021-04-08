@@ -1,5 +1,5 @@
 decorator==4.4.0
-Django==2.2.5
+Django==2.2.20
 Pillow==6.1.0
 Pygments==2.4.2
 pylint==2.3.1
